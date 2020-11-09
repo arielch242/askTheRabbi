@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+}
+
+.flex-fill{
+  flex: 1 1 auto;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+
+.bellefair {
+  font-family: "Bellefair", serif;
+}
+
+.bg-img {
+  background-image: url("./images/3744b.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#qTopic {
+  width: 243px;
+  height: 38px;
+  text-align: right;
+}
+
+#qArticle {
+  text-align: right;
+  margin: 15px;
+}
+
+/* #askSubmit{
+  padding-right: 6px !important;
+} */
+
+.textinput {
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  resize: none;
+  border: 1px solid grey;
+ }
