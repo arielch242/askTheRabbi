@@ -25,11 +25,12 @@ class Signup extends Form {
       };
 
       async doSubmit(){
+          
           const {history} = this.props;
           const data = {...this.state.data,biz:false};
+          console.log('api UrL ****', apiUrl,'   data ****',data);
           try{
           await http.post(`${apiUrl}/users`,data);
-          console.log('api UrL ****', apiUrl,'   data ****',data);
           toast('נפתח חשבון חדש');
           history.replace("/signin");
           } catch (error){
@@ -50,7 +51,7 @@ class Signup extends Form {
             <div className="container min-vh-100 bg-img text-white text-right">
             <PageHeader titleText="הרשמה"/>
                 <div className="row">
-                    <div className="col-lg-6 mx-auto text-right">7654
+                    <div className="col-lg-6 mx-auto text-right">
                         <form onSubmit={this.handleSubmit}>
                             {this.renderInput('name','שם המשתמש',"name")}
                             {this.renderInput('email','דוא"ל',"email")}
