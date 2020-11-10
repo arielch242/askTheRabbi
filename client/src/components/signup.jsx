@@ -50,7 +50,7 @@ class Signup extends Form {
             <div className="container min-vh-100 bg-img text-white text-right">
             <PageHeader titleText="הרשמה"/>
                 <div className="row">
-                    <div className="col-lg-6 mx-auto text-right">
+                    <div className="col-lg-6 mx-auto text-right">7654
                         <form onSubmit={this.handleSubmit}>
                             {this.renderInput('name','שם המשתמש',"name")}
                             {this.renderInput('email','דוא"ל',"email")}
