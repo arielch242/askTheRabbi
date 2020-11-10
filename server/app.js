@@ -7,9 +7,8 @@ const app = express();
 const http = require('http').Server(app);
 const mongoose = require('mongoose');
 const cors = require("cors");
-const path = require('path');
 
-mongoose.connect('mongodb+srv://admin:gazit111@gazit.duowd.mongodb.net/qna?authSource=admin&replicaSet=atlas-gh3qpt-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -20,14 +19,12 @@ mongoose.connect('mongodb+srv://admin:gazit111@gazit.duowd.mongodb.net/qna?authS
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => { res.send('Hello from Express!')
+//app.get('/', (req, res) => { res.send('Hello from Express!')});
 
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/cards', cards);
 app.use('/api/authors', authors);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
-});
+const port = process.env.PORT || 5000;
+http.listen(port, () => console.log(`Listening on port ${port}...`));
