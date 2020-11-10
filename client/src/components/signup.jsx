@@ -29,6 +29,7 @@ class Signup extends Form {
           const data = {...this.state.data,biz:false};
           try{
           await http.post(`${apiUrl}/users`,data);
+          console.log('api UrL ****', apiUrl,'   data ****',data);
           toast('נפתח חשבון חדש');
           history.replace("/signin");
           } catch (error){
