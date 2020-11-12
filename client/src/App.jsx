@@ -26,30 +26,21 @@ class App extends Component {
       userName: ""
     };
     
-
-    
     componentDidMount (){
       const user = userService.getCurrentUser();
-      this.setState({user})
-   //   this.setUserName();
+      this.setState({user});
+      this.setUserName();
     }
     
-    setUserName(){
-      if( this.state.user?.biz )  
-           {
-             this.setState({userName: 'Author'})
-           }    // if biz=true it means that the user is an Author so it displays it on the navbar 
-               //  but he doesnt get any privileges until he signs in 
-      else {
-      let userName = async () => { 
+    setUserName(){      // only for DB users - not local users
+              let userName = async () => { 
               const result = await userService.getCurrentUserName(this.state.user) 
               return result } 
-      (async () => {
-                const results = await userName()
-                this.setState({userName: results})
-              })();
+              (async () => {
+                  const results = await userName()
+                  this.setState({userName: results})
+               })();
        }
-    }
   
     render() {
       const {user} = this.state; 
