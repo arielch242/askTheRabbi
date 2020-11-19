@@ -37,15 +37,12 @@ class QnA extends Component {
     // only for DB users - not local users
     let userFavs = async () => {
       const result = await userService.getCurrentUserDetails(this.state.user);
-      let favs = result[1];
-      if (favs > 0) {
-        this.setState({ favs });
-      }
+      // returns an array of user details where name is on place 0 and favs is on place 1 
       return result;
     };
     (async () => {
       const results = await userFavs();
-      this.setState({ favs: results[1] });
+      if (typeof(results[1]) != "undefined")  {  this.setState({ favs: results[1] })  }
     })();
   }
 
