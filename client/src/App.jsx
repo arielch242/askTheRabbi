@@ -40,7 +40,7 @@ class App extends Component {
     };
     (async () => {
       const results = await userName();
-      this.setState({ userName: results[0] });           
+      if (typeof(results) != "undefined") this.setState({ userName: results[0] });           
     })();
   }
 
